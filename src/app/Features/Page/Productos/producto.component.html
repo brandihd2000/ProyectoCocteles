@@ -1,0 +1,101 @@
+<!-- Features section-->
+<section class="py-5 border-bottom" id="features">
+    <div class="container px-5 my-5">
+        <div class="row gx-5 ">
+            <h2 class="display-5 fw-bolder text-dark mb-5 text-center">Most Popular Cocktails </h2>
+
+            <div class="col-lg-4 mt-3 mb-5 mb-lg-0 text-center" *ngFor="let cocktail of TopcocktailsList.slice(0, 3);">
+                <app-card [title]="cocktail.strDrink" [subTitle]="cocktail.strInstructions"
+                    [icon]="cocktail.strDrinkThumb"></app-card>
+            </div>
+            <div class="col-lg-6 mt-3 mb-5 mb-lg-0 text-center" *ngFor="let cocktail of TopcocktailsList.slice(3, 5);">
+                <app-card [title]="cocktail.strDrink" [subTitle]="cocktail.strInstructions"
+                    [icon]="cocktail.strDrinkThumb"></app-card>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Pricing section-->
+<section class="bg-light py-5 border-bottom">
+    <div class="container px-5 my-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bolder">Cocktail Recipes</h2>
+            <p class="lead mb-0">Ingredients</p>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search....." aria-label="Recipient's username"
+                aria-describedby="basic-addon2" (input)="onInput(input.value)" #input>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" (click)="search(input.value)" type="button">Search</button>
+            </div>
+        </div>
+        <div class="row gx-5 justify-content-center">
+            <!-- Pricing card free-->
+            <div class="col-lg-6 col-xl-4 mb-5" *ngFor="let cocktail of cocktailsList.slice(0, 6);">
+                <div class="card mb-5 mb-xl-0">
+                    <div class="card-body p-5">
+                        <div class="small text-uppercase fw-bold text-muted">{{cocktail.strDrink}}</div>
+                        <div class="mb-3">
+                            <span class="display-6 fw-bold">Ingredients</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2">
+                                <i
+                                    [class]="(cocktail.strIngredient1 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                <strong>{{cocktail.strIngredient1}}</strong>
+                            </li>
+                            <li class="mb-2">
+                                <i
+                                    [class]="(cocktail.strIngredient2 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient2}}
+                            </li>
+                            <li class="mb-2">
+                                <i
+                                    [class]="(cocktail.strIngredient3 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient3}}
+                            </li>
+                            <li class="mb-2">
+                                <i
+                                    [class]="(cocktail.strIngredient4 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient4}}
+                            </li>
+                            <li class="mb-2 text-muted">
+                                <i
+                                    [class]="(cocktail.strIngredient5 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient5}}
+                            </li>
+                            <li class="mb-2 text-muted">
+                                <i
+                                    [class]="(cocktail.strIngredient6 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient6}}
+                            </li>
+                            <li class="mb-2 text-muted">
+                                <i
+                                    [class]="(cocktail.strIngredient7 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient7}}
+                            </li>
+                            <li class="text-muted">
+                                <i
+                                    [class]="(cocktail.strIngredient8 == null)? 'bi bi-x': 'bi bi-check text-primary'"></i>
+                                {{cocktail.strIngredient8}}
+                            </li>
+                        </ul>
+                        <div class="d-grid"><a class="btn btn-outline-primary"
+                                [routerLink]="'Details/'+ cocktail.strDrink">More Details...</a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="cocktailsList.length == 0" class="col-lg-12 col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">No Results</h5>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+<ng-container>
+    <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3"><img [src]="icon" alt="" srcset="" width="55px" height="55px"></div>
+    <h2 class="h4 fw-bolder">{{title}}</h2>
+    <p>{{subTitle | slice:0:80}}......</p>
+    <a class="text-decoration-none" [routerLink]="'Details/'+ title">
+        More Details...
+        <i [class]="icon"></i>
+    </a>
+</ng-container>
